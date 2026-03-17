@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
     <title>THE CALL OF CTHULHU · 守秘人圣柜</title>
-    <!-- 字体：哥特体 + 衬线 + 手写 -->
-   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+    <!-- 字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet">
     <!-- 可拖拽库 -->
     <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
     <style>
@@ -28,7 +28,7 @@
             overflow-x: hidden;
         }
         
-        /* ========== 克苏鲁背景元素 - 左右触手和眼睛 ========== */
+        /* 触手和眼睛背景 */
         .tentacle-left {
             position: fixed;
             left: 0;
@@ -172,20 +172,13 @@
             padding: 0;
             position: relative;
             z-index: 10;
-            animation: containerGlow 8s infinite alternate;
         }
 
-        @keyframes containerGlow {
-            0% { box-shadow: 0 20px 40px -12px #000000, inset 0 0 0 1px #4f4437, 0 0 0 4px #0b0907, 0 0 30px #b48b4a20; }
-            100% { box-shadow: 0 20px 40px -12px #000000, inset 0 0 0 1px #4f4437, 0 0 0 4px #0b0907, 0 0 50px #b48b4a60; }
-        }
-
-        /* ========== 标题 - 哥特体 无动画 ========== */
+        /* 标题区 */
         .title-block {
             background: #0a0806;
             border-bottom: 3px solid #b48b4a;
             padding: 40px 32px 32px 32px;
-            position: relative;
         }
 
         .main-title {
@@ -195,19 +188,12 @@
             color: #b48b4a;
             line-height: 1.2;
             margin-bottom: 8px;
-            text-shadow: 
-                3px 3px 0 #2f241a,
-                0 0 20px #b48b4a60;
+            text-shadow: 3px 3px 0 #2f241a, 0 0 20px #b48b4a60;
             border-left: 4px solid #b48b4a;
             padding-left: 32px;
-            display: block;
             text-transform: uppercase;
-            
-            /* 字母间距 - 调小让字母更紧凑 */
-            letter-spacing: -2px;
-            
-            /* 单词间距 - 调大让单词分开 */
-            word-spacing: 20px;
+            letter-spacing: -1px;
+            word-spacing: 15px;
         }
 
         .keeper-area {
@@ -218,7 +204,6 @@
             border-top: 1px dashed #4f4437;
             padding-top: 20px;
         }
-
         .keeper-label {
             color: #b48b4a;
             font-size: 1.1rem;
@@ -238,8 +223,6 @@
         .keeper-name-display:hover { 
             color: #b48b4a;
             border-bottom-color: #b48b4a;
-            transform: scale(1.05);
-            text-shadow: 0 0 10px #b48b4a80;
         }
         .keeper-name-input {
             background: transparent;
@@ -260,7 +243,6 @@
             border-bottom: 2px solid #4f4437;
             flex-wrap: wrap;
         }
-
         .tab-btn {
             background: transparent;
             border: none;
@@ -276,7 +258,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .tab-btn::before {
             content: '';
             position: absolute;
@@ -291,12 +272,10 @@
             pointer-events: none;
             z-index: 0;
         }
-
         .tab-btn:hover::before {
             width: 200px;
             height: 200px;
         }
-
         .tab-btn::after {
             content: '';
             position: absolute;
@@ -307,18 +286,13 @@
             border: 1px solid transparent;
             transition: border-color 0.3s;
             pointer-events: none;
-            z-index: 1;
         }
-
         .tab-btn:hover::after {
             border-color: #b48b4a;
         }
-
         .tab-btn:hover {
             color: #dbb45c;
-            text-shadow: 0 0 8px #b48b4a;
         }
-
         .tab-btn.active {
             color: #b48b4a;
         }
@@ -331,14 +305,7 @@
             border-left: 8px solid #b48b4a;
             padding: 8px 0 8px 20px;
             background: linear-gradient(90deg, #2a241e 0%, transparent 100%);
-            animation: slideIn 0.5s ease-out;
         }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
         .section-header h2 {
             font-size: 2.2rem;
             font-weight: 700;
@@ -354,13 +321,11 @@
             color: #e0d3c0;
             font-size: 0.95rem;
             outline: none;
-            border-radius: 0;
             transition: all 0.3s;
         }
         input:focus, select:focus, textarea:focus {
             border-color: #b48b4a;
             box-shadow: 0 0 15px #b48b4a40;
-            transform: scale(1.02);
         }
 
         .btn {
@@ -373,12 +338,9 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            border-radius: 0;
-            transition: all 0.3s;
             position: relative;
             overflow: hidden;
         }
-
         .btn::before {
             content: '';
             position: absolute;
@@ -393,12 +355,10 @@
             pointer-events: none;
             z-index: 0;
         }
-
         .btn:hover::before {
             width: 300px;
             height: 300px;
         }
-
         .btn::after {
             content: '';
             position: absolute;
@@ -409,19 +369,15 @@
             border: 1px solid transparent;
             transition: border-color 0.3s;
             pointer-events: none;
-            z-index: 1;
         }
-
         .btn:hover::after {
             border-color: #b48b4a;
         }
-
         .btn:hover {
             color: #ffffff;
-            text-shadow: 0 0 10px #b48b4a;
         }
 
-        .delete-btn {
+        .delete-btn, .edit-btn {
             background: none;
             border: none;
             color: #9b8b74;
@@ -436,8 +392,7 @@
             position: relative;
             overflow: hidden;
         }
-
-        .delete-btn::before {
+        .delete-btn::before, .edit-btn::before {
             content: '';
             position: absolute;
             top: var(--y, 50%);
@@ -449,15 +404,12 @@
             transform: translate(-50%, -50%);
             transition: width 0.3s, height 0.3s;
             pointer-events: none;
-            z-index: 0;
         }
-
-        .delete-btn:hover::before {
+        .delete-btn:hover::before, .edit-btn:hover::before {
             width: 80px;
             height: 80px;
         }
-
-        .delete-btn::after {
+        .delete-btn::after, .edit-btn::after {
             content: '';
             position: absolute;
             top: 0;
@@ -468,14 +420,16 @@
             transition: border-color 0.3s;
             pointer-events: none;
         }
-
-        .delete-btn:hover::after {
+        .delete-btn:hover::after, .edit-btn:hover::after {
             border-color: #b48b4a;
         }
-
         .delete-btn:hover {
             color: #b48b4a;
             transform: rotate(90deg) scale(1.1);
+        }
+        .edit-btn:hover {
+            color: #b48b4a;
+            transform: scale(1.1);
         }
 
         .filter-bar {
@@ -502,11 +456,10 @@
             margin-bottom: 12px;
             transition: all 0.3s;
         }
-
         .module-item:hover {
             border-color: #b48b4a;
             transform: translateX(5px);
-            box-shadow: -5px 5px 15px #00000080, 0 0 20px #b48b4a40;
+            box-shadow: -5px 5px 15px #00000080;
         }
 
         .module-header {
@@ -519,11 +472,6 @@
         .module-name {
             font-size: 1.5rem;
             color: #d9c49b;
-            transition: all 0.3s;
-        }
-        .module-item:hover .module-name {
-            color: #b48b4a;
-            text-shadow: 0 0 10px #b48b4a;
         }
 
         .tag-group {
@@ -531,6 +479,7 @@
             flex-wrap: wrap;
             gap: 8px;
             margin-left: auto;
+            max-width: 60%;
         }
         .tag {
             background: #2a241e;
@@ -541,13 +490,12 @@
             font-size: 0.8rem;
             border-radius: 30px;
             transition: all 0.3s;
+            white-space: nowrap;
         }
-
         .tag:hover {
             background: #b48b4a;
             color: #1f1b16;
             transform: scale(1.1);
-            box-shadow: 0 0 15px #b48b4a;
         }
 
         .module-detail {
@@ -568,110 +516,12 @@
             flex: 1;
         }
 
-        .board-container {
+        .button-group {
             display: flex;
-            gap: 24px;
-            height: 700px;
-        }
-        .board-sidebar {
-            width: 250px;
-            background: #16120e;
-            border: 2px solid #4f4437;
-            padding: 16px;
-            overflow-y: auto;
-            z-index: 2;
-        }
-        .board-item {
-            background: #1f1b16;
-            border: 2px solid #4f4437;
-            padding: 16px;
-            margin-bottom: 12px;
-            cursor: pointer;
-            color: #b8aa94;
-            transition: all 0.3s;
-        }
-        .board-item:hover {
-            border-color: #b48b4a;
-            transform: translateX(5px);
-            background: #2a241e;
-        }
-        .board-item.active {
-            border-color: #b48b4a;
-            color: #d9c49b;
-            background: #2a241e;
-        }
-        .board-canvas-container {
-            flex: 1;
-            background: #1a1612;
-            border: 2px solid #4f4437;
-            position: relative;
-            overflow: auto;
-        }
-        
-        #boardCanvas {
-            width: 2000px;
-            height: 2000px;
-            background: #1a1612;
-            position: relative;
-            overflow: hidden;
+            gap: 4px;
         }
 
-        /* 留空给黄印背景，等您提供图片后添加 */
-        .yellow-sign-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-            opacity: 0.15;
-            /* 等您提供图片后，这里会添加 background-image */
-        }
-        
-        .note-item {
-            position: absolute;
-            width: 200px;
-            background: #2a241e;
-            border: 2px solid #b48b4a;
-            padding: 12px;
-            cursor: move;
-            color: #e0d3c0;
-            box-shadow: 4px 4px 0 #0f0d0a;
-            z-index: 10;
-            transition: all 0.3s;
-            backdrop-filter: blur(2px);
-        }
-
-        .note-item:hover {
-            border-color: #dbb45c;
-            box-shadow: 0 0 20px #b48b4a80, 4px 4px 0 #0f0d0a;
-            z-index: 20;
-        }
-        .note-item textarea {
-            width: 100%;
-            background: transparent;
-            border: none;
-            color: #e0d3c0;
-            resize: none;
-            min-height: 60px;
-        }
-        .connection-line {
-            position: absolute;
-            background: #b48b4a;
-            height: 2px;
-            transform-origin: 0 0;
-            pointer-events: none;
-            opacity: 0.5;
-            z-index: 5;
-            transition: opacity 0.3s;
-        }
-        .connection-line:hover {
-            opacity: 1;
-            background: #dbb45c;
-            height: 3px;
-        }
-
+        /* 日历页面样式 */
         .calendar-stats {
             display: flex;
             gap: 24px;
@@ -700,7 +550,6 @@
         .stat-value {
             color: #d9c49b;
             font-size: 2rem;
-            font-weight: 700;
             font-family: 'Special Elite', cursive;
         }
         
@@ -751,6 +600,7 @@
         .calendar-duration { color: #d9c49b; }
         .calendar-module { color: #9b8b74; }
 
+        /* 成就页面样式 */
         .achievement-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -769,7 +619,7 @@
         .achievement-card:hover {
             border-color: #b48b4a;
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 20px #00000080, 0 0 30px #b48b4a60;
+            box-shadow: 0 10px 20px #00000080;
         }
         .achievement-icon {
             width: 64px;
@@ -781,7 +631,6 @@
             justify-content: center;
             overflow: hidden;
             flex-shrink: 0;
-            transition: all 0.3s;
         }
         .achievement-card:hover .achievement-icon {
             transform: rotate(360deg);
@@ -817,6 +666,12 @@
             font-family: 'Special Elite', cursive;
         }
 
+        /* 角色卡片样式 */
+        .char-double {
+            display: grid;
+            grid-template-columns: 1.2fr 2fr;
+            gap: 24px;
+        }
         .char-card {
             background: #1f1b16;
             border: 2px solid #4f4437;
@@ -843,11 +698,6 @@
             flex-shrink: 0;
             color: #b48b4a;
             font-size: 2rem;
-            transition: all 0.3s;
-        }
-        .char-card:hover .char-avatar {
-            border-color: #b48b4a;
-            transform: scale(1.05);
         }
         .char-avatar img {
             width: 100%;
@@ -874,7 +724,6 @@
             padding: 4px 10px;
             color: #e0d3c0;
             font-size: 0.85rem;
-            transition: all 0.3s;
         }
         .stat-badge:hover {
             border-color: #b48b4a;
@@ -893,9 +742,107 @@
             font-size: 0.9rem;
         }
 
+        /* 线索板样式 */
+        .board-container {
+            display: flex;
+            gap: 24px;
+            height: 700px;
+        }
+        .board-sidebar {
+            width: 280px;
+            background: #16120e;
+            border: 2px solid #4f4437;
+            padding: 16px;
+            overflow-y: auto;
+        }
+        .board-item {
+            background: #1f1b16;
+            border: 2px solid #4f4437;
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            color: #b8aa94;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .board-item:hover {
+            border-color: #b48b4a;
+            background: #2a241e;
+        }
+        .board-item.active {
+            border-color: #b48b4a;
+            color: #d9c49b;
+            background: #2a241e;
+        }
+        .board-delete {
+            background: none;
+            border: none;
+            color: #9b8b74;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0 4px;
+        }
+        .board-delete:hover {
+            color: #b48b4a;
+            transform: scale(1.2);
+        }
+        .board-canvas-container {
+            flex: 1;
+            background: #1a1612;
+            border: 2px solid #4f4437;
+            position: relative;
+            overflow: auto;
+        }
+        
+        #boardCanvas {
+            width: 2000px;
+            height: 2000px;
+            background: #1a1612;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .note-item {
+            position: absolute;
+            width: 200px;
+            background: #2a241e;
+            border: 2px solid #b48b4a;
+            padding: 12px;
+            cursor: move;
+            color: #e0d3c0;
+            box-shadow: 4px 4px 0 #0f0d0a;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .note-item:hover {
+            border-color: #dbb45c;
+            box-shadow: 0 0 20px #b48b4a80;
+        }
+        .note-item textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #e0d3c0;
+            resize: none;
+            min-height: 60px;
+        }
+
+        .connection-line {
+            position: absolute;
+            background: #b48b4a;
+            height: 2px;
+            transform-origin: 0 0;
+            pointer-events: none;
+            opacity: 0.5;
+            z-index: 5;
+        }
+
+        /* 外链样式 */
         .link-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 16px;
             margin-bottom: 20px;
         }
@@ -907,36 +854,35 @@
             align-items: center;
             gap: 12px;
             transition: all 0.3s;
+            min-width: 0;
         }
         .link-tile:hover {
             border-color: #b48b4a;
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px #00000080;
         }
         .link-icon {
             font-size: 2rem;
             color: #b48b4a;
-            transition: all 0.3s;
-        }
-        .link-tile:hover .link-icon {
-            transform: rotate(360deg);
-            color: #dbb45c;
+            flex-shrink: 0;
         }
         .link-info {
             flex: 1;
+            min-width: 0;
         }
         .link-info a {
             color: #d9c49b;
             text-decoration: none;
-            transition: all 0.3s;
-        }
-        .link-info a:hover {
-            color: #b48b4a;
-            text-decoration: underline;
+            display: block;
+            word-break: break-all;
+            white-space: normal;
+            overflow-wrap: break-word;
         }
         .link-info div {
             color: #9b8b74;
             font-size: 0.7rem;
+            word-break: break-all;
+            white-space: normal;
+            overflow-wrap: break-word;
         }
 
         .data-tools {
@@ -975,6 +921,7 @@
         <button class="tab-btn" data-page="links">禁忌书签</button>
     </div>
 
+    <!-- 模组卷宗页面 -->
     <div id="modules-page" class="page active-page">
         <div class="section-header"><h2>模组卷宗</h2></div>
         <div class="filter-bar">
@@ -996,16 +943,20 @@
                 <option value="done">已完成</option>
                 <option value="pending">未进行</option>
             </select>
-            <input type="text" id="moduleTagInput" placeholder="标签">
+            <input type="text" id="moduleTagInput" placeholder="标签 (用逗号分隔)">
             <input type="text" id="moduleBackground" placeholder="背景">
             <input type="text" id="moduleComment" placeholder="吐槽">
-            <button class="btn" id="addModuleBtn">铭刻</button>
+            <div style="display:flex; gap:4px;">
+                <button class="btn" id="addModuleBtn" style="flex:1;">铭刻</button>
+                <button class="btn" id="cancelEditBtn" style="flex:1; display:none;">取消</button>
+            </div>
         </div>
     </div>
 
+    <!-- 调查员陵寝页面 -->
     <div id="characters-page" class="page">
         <div class="section-header"><h2>调查员陵寝</h2></div>
-        <div class="char-double" style="display:grid; grid-template-columns:1.2fr 2fr; gap:24px;">
+        <div class="char-double">
             <div class="left-panel" style="background:#1a1612; border:2px solid #4f4437; padding:22px;">
                 <div style="border:2px dashed #4f4437; padding:20px; margin-bottom:20px;">
                     <label style="color:#b48b4a;">导入Excel</label>
@@ -1029,9 +980,9 @@
         </div>
     </div>
 
+    <!-- 时之砂漏页面 -->
     <div id="calendar-page" class="page">
         <div class="section-header"><h2>时之砂漏</h2></div>
-        
         <div class="calendar-stats">
             <div class="stat-card">
                 <div class="stat-label">本月献祭</div>
@@ -1064,11 +1015,10 @@
         <div class="calendar-list" id="calendarListContainer"></div>
     </div>
 
+    <!-- 旧神徽记页面 -->
     <div id="achievements-page" class="page">
         <div class="section-header"><h2>旧神徽记</h2></div>
-        
         <div class="achievement-grid" id="achievementGridContainer"></div>
-
         <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px;">
             <input type="text" id="achievementName" placeholder="徽记名称">
             <input type="text" id="achievementDesc" placeholder="徽记描述">
@@ -1079,6 +1029,7 @@
         </div>
     </div>
 
+    <!-- 幻梦境之墙页面 -->
     <div id="board-page" class="page">
         <div class="section-header"><h2>幻梦境之墙</h2></div>
         <div class="board-container">
@@ -1088,9 +1039,7 @@
                 <button class="btn" id="addBoardModuleBtn" style="width:100%; margin-top:16px;">+ 新梦境</button>
             </div>
             <div class="board-canvas-container">
-                <div id="boardCanvas">
-                    <div class="yellow-sign-bg"></div>
-                </div>
+                <div id="boardCanvas"></div>
             </div>
         </div>
         <div style="margin-top:16px; display:flex; gap:12px;">
@@ -1100,9 +1049,10 @@
         </div>
     </div>
 
+    <!-- 禁忌书签页面 -->
     <div id="links-page" class="page">
         <div class="section-header"><h2>禁忌书签</h2></div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:16px; margin-bottom:20px;" id="linkGridContainer"></div>
+        <div class="link-grid" id="linkGridContainer"></div>
         <div style="display:flex; gap:16px;">
             <input type="text" id="linkNameInput" placeholder="书签名称" style="flex:2;">
             <input type="url" id="linkUrlInput" placeholder="https://" style="flex:3;">
@@ -1110,6 +1060,7 @@
         </div>
     </div>
 
+    <!-- 导入导出 -->
     <div class="data-tools">
         <button class="btn" id="exportDataBtn">⭓ 导出圣物</button>
         <button class="btn" id="importDataBtn">⭔ 导入圣物</button>
@@ -1119,8 +1070,9 @@
 
 <script>
     (function() {
+        // 鼠标光晕效果
         function setupMouseGlow() {
-            const buttons = document.querySelectorAll('.btn, .tab-btn, .delete-btn');
+            const buttons = document.querySelectorAll('.btn, .tab-btn, .delete-btn, .edit-btn, .board-delete');
             buttons.forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const rect = btn.getBoundingClientRect();
@@ -1132,6 +1084,7 @@
             });
         }
 
+        // 数据定义
         let modules = [];
         let characters = [];
         let links = [];
@@ -1141,7 +1094,9 @@
         let currentBoardId = null;
         let connectMode = false;
         let selectedNote = null;
+        let editingModuleIndex = -1;
 
+        // 守秘人名字
         const keeperDisplay = document.getElementById('keeperDisplay');
         const keeperInput = document.getElementById('keeperInput');
 
@@ -1163,33 +1118,38 @@
             if (e.key === 'Enter') keeperInput.blur();
         });
 
+        // 加载数据
         function loadFromStorage() {
             try {
-                modules = JSON.parse(localStorage.getItem('coc_modules')) || [];
-                characters = JSON.parse(localStorage.getItem('coc_characters')) || [];
-                links = JSON.parse(localStorage.getItem('coc_links')) || [];
-                calendar = JSON.parse(localStorage.getItem('coc_calendar')) || [];
-                achievements = JSON.parse(localStorage.getItem('coc_achievements')) || [];
-                boards = JSON.parse(localStorage.getItem('coc_boards')) || [];
-                const keeper = localStorage.getItem('coc_keeper');
-                if (keeper) {
-                    keeperDisplay.textContent = keeper;
-                    keeperInput.value = keeper;
+                const savedModules = localStorage.getItem('coc_modules');
+                const savedChars = localStorage.getItem('coc_characters');
+                const savedLinks = localStorage.getItem('coc_links');
+                const savedCalendar = localStorage.getItem('coc_calendar');
+                const savedAchievements = localStorage.getItem('coc_achievements');
+                const savedBoards = localStorage.getItem('coc_boards');
+                const savedKeeper = localStorage.getItem('coc_keeper');
+                
+                if (savedModules) modules = JSON.parse(savedModules);
+                if (savedChars) characters = JSON.parse(savedChars);
+                if (savedLinks) links = JSON.parse(savedLinks);
+                if (savedCalendar) calendar = JSON.parse(savedCalendar);
+                if (savedAchievements) achievements = JSON.parse(savedAchievements);
+                if (savedBoards) boards = JSON.parse(savedBoards);
+                if (savedKeeper) {
+                    keeperDisplay.textContent = savedKeeper;
+                    keeperInput.value = savedKeeper;
                 }
-            } catch (e) {}
+            } catch (e) {
+                console.warn('加载失败', e);
+            }
             
-            if (modules.length === 0) modules = [
-                { name: '暗黑边缘', status: 'done', background: '经典入门', comment: '气氛很好', tags: ['经典'] },
-                { name: '疯狂山脉', status: 'ongoing', background: '南极探险', comment: '史诗级模组', tags: ['史诗', '极地'] },
-                { name: '黄印之邀', status: 'wish', background: '戏剧团', comment: '想带很久了', tags: ['戏剧', '黄衣之王'] }
-            ];
-            if (characters.length === 0) characters = [
-                { name: '梅森·格雷', stats: {力量:55,敏捷:70,意志:65,智力:75,体型:60,教育:80,幸运:35,外貌:50,理智:55}, quote: '物理学博士', modules: '暗黑边缘', avatarData: null }
-            ];
-            if (links.length === 0) links = [
-                { name: '骰子机器人', url: 'https://trpg.dice.bot' },
-                { name: '魔都CoC维基', url: 'https://cocwiki.net' }
-            ];
+            // 初始化示例数据（仅当完全为空时）
+            if (modules.length === 0) {
+                modules.push({ name: '暗黑边缘', status: 'done', background: '经典入门模组', comment: '气氛很好', tags: ['经典'] });
+            }
+            if (links.length === 0) {
+                links.push({ name: '骰子机器人', url: 'https://trpg.dice.bot' });
+            }
             if (boards.length === 0) {
                 boards.push({ id: 'board1', name: '初梦', notes: [], connections: [] });
                 currentBoardId = 'board1';
@@ -1208,6 +1168,7 @@
             localStorage.setItem('coc_keeper', keeperDisplay.textContent);
         }
 
+        // ========== 模组相关函数 ==========
         function renderModules() {
             const container = document.getElementById('moduleListContainer');
             if (!container) return;
@@ -1215,7 +1176,7 @@
             let filtered = filter === 'all' ? modules : modules.filter(m => m.status === filter);
             
             container.innerHTML = '';
-            filtered.forEach((mod, idx) => {
+            filtered.forEach((mod) => {
                 const actualIdx = modules.indexOf(mod);
                 const div = document.createElement('div');
                 div.className = 'module-item';
@@ -1231,7 +1192,10 @@
                     <div class="module-header">
                         <span class="module-name">${escapeHtml(mod.name)}</span>
                         ${tagsHtml}
-                        <button class="delete-btn" onclick="deleteModule(${actualIdx})">✕</button>
+                        <div class="button-group">
+                            <button class="edit-btn" onclick="editModule(${actualIdx})">✎</button>
+                            <button class="delete-btn" onclick="deleteModule(${actualIdx})">✕</button>
+                        </div>
                     </div>
                     <div class="module-detail">
                         <div class="detail-row"><span class="detail-label">背景</span><span class="detail-content">${escapeHtml(mod.background || '-')}</span></div>
@@ -1243,11 +1207,82 @@
             });
         }
 
+        window.editModule = (index) => {
+            const mod = modules[index];
+            document.getElementById('moduleNameInput').value = mod.name || '';
+            document.getElementById('moduleStatusSelect').value = mod.status || 'wish';
+            document.getElementById('moduleTagInput').value = (mod.tags || []).join(', ');
+            document.getElementById('moduleBackground').value = mod.background || '';
+            document.getElementById('moduleComment').value = mod.comment || '';
+            
+            editingModuleIndex = index;
+            document.getElementById('addModuleBtn').textContent = '更新';
+            document.getElementById('cancelEditBtn').style.display = 'block';
+        };
+
         window.deleteModule = (index) => {
             modules.splice(index, 1);
             saveToStorage();
             renderModules();
         };
+
+        document.getElementById('cancelEditBtn')?.addEventListener('click', () => {
+            clearModuleForm();
+        });
+
+        function clearModuleForm() {
+            document.getElementById('moduleNameInput').value = '';
+            document.getElementById('moduleTagInput').value = '';
+            document.getElementById('moduleBackground').value = '';
+            document.getElementById('moduleComment').value = '';
+            document.getElementById('moduleStatusSelect').value = 'wish';
+            
+            editingModuleIndex = -1;
+            document.getElementById('addModuleBtn').textContent = '铭刻';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+        }
+
+        document.getElementById('addModuleBtn')?.addEventListener('click', () => {
+            const name = document.getElementById('moduleNameInput').value.trim();
+            if (!name) return;
+            
+            const tagStr = document.getElementById('moduleTagInput').value.trim();
+            let tags = tagStr ? tagStr.split(',').map(s => s.trim()).filter(s => s) : [];
+            
+            const moduleData = {
+                name: name,
+                status: document.getElementById('moduleStatusSelect').value,
+                background: document.getElementById('moduleBackground').value.trim(),
+                comment: document.getElementById('moduleComment').value.trim(),
+                tags: tags
+            };
+            
+            if (editingModuleIndex >= 0) {
+                modules[editingModuleIndex] = moduleData;
+                clearModuleForm();
+            } else {
+                modules.push(moduleData);
+            }
+            
+            saveToStorage();
+            renderModules();
+            clearModuleForm();
+        });
+
+        document.getElementById('statusFilter')?.addEventListener('change', renderModules);
+
+        // ========== 角色相关函数 ==========
+        const statKeys = ['力量','敏捷','意志','智力','体型','教育','幸运','外貌','理智'];
+        const nineDiv = document.getElementById('nineStats');
+        if (nineDiv) {
+            statKeys.forEach(s => {
+                const w = document.createElement('div');
+                w.className = 'stat-item';
+                w.style.cssText = 'background:#0f0d0a; border:2px solid #4f4437; padding:10px; text-align:center;';
+                w.innerHTML = `<label style="color:#b48b4a;">${s}</label><input type="number" class="stat-input" data-stat="${s}" value="50" min="1" style="width:80px; text-align:center; margin-top:4px; background:#0f0d0a; border:2px solid #4f4437; color:#e0d3c0;">`;
+                nineDiv.appendChild(w);
+            });
+        }
 
         function renderCharacters() {
             const container = document.getElementById('charListContainer');
@@ -1284,6 +1319,35 @@
             renderCharacters();
         };
 
+        document.getElementById('addManualCharBtn')?.addEventListener('click', () => {
+            const name = prompt('输入调查员姓名', '新调查员');
+            if (!name) return;
+            const statInputs = document.querySelectorAll('.stat-input');
+            let stats = {};
+            statInputs.forEach(inp => stats[inp.dataset.stat] = parseInt(inp.value) || 50);
+            const quote = document.getElementById('charQuote').value.trim() || '';
+            const modulesPlayed = document.getElementById('charModules').value.trim() || '';
+            const avatarFile = document.getElementById('avatarUpload').files[0];
+            
+            if (avatarFile) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    characters.push({ name, stats, quote, modules: modulesPlayed, avatarData: e.target.result });
+                    saveToStorage();
+                    renderCharacters();
+                };
+                reader.readAsDataURL(avatarFile);
+            } else {
+                characters.push({ name, stats, quote, modules: modulesPlayed, avatarData: null });
+                saveToStorage();
+                renderCharacters();
+            }
+            document.getElementById('charQuote').value = '';
+            document.getElementById('charModules').value = '';
+            document.getElementById('avatarUpload').value = '';
+        });
+
+        // ========== 日历相关函数 ==========
         function updateCalendarStats() {
             const now = new Date();
             const thisMonth = now.getMonth();
@@ -1409,6 +1473,20 @@
             renderCalendar();
         };
 
+        document.getElementById('addCalendarBtn')?.addEventListener('click', () => {
+            const date = document.getElementById('calendarDate').value;
+            const hours = parseFloat(document.getElementById('calendarHours').value);
+            const module = document.getElementById('calendarModule').value;
+            if (!date || !hours) return;
+            calendar.push({ date, hours, module });
+            saveToStorage();
+            renderCalendar();
+            document.getElementById('calendarDate').value = '2026-03-17';
+            document.getElementById('calendarHours').value = '2';
+            document.getElementById('calendarModule').value = '';
+        });
+
+        // ========== 成就相关函数 ==========
         function renderAchievements() {
             const container = document.getElementById('achievementGridContainer');
             if (!container) return;
@@ -1438,23 +1516,74 @@
             renderAchievements();
         };
 
+        document.getElementById('addAchievementBtn')?.addEventListener('click', () => {
+            const name = document.getElementById('achievementName').value.trim();
+            if (!name) return;
+            
+            const iconFile = document.getElementById('achievementIcon').files[0];
+            if (iconFile) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    achievements.push({
+                        name: name,
+                        desc: document.getElementById('achievementDesc').value.trim(),
+                        source: document.getElementById('achievementSource').value.trim(),
+                        date: document.getElementById('achievementDate').value,
+                        icon: e.target.result
+                    });
+                    saveToStorage();
+                    renderAchievements();
+                };
+                reader.readAsDataURL(iconFile);
+            } else {
+                achievements.push({
+                    name: name,
+                    desc: document.getElementById('achievementDesc').value.trim(),
+                    source: document.getElementById('achievementSource').value.trim(),
+                    date: document.getElementById('achievementDate').value
+                });
+                saveToStorage();
+                renderAchievements();
+            }
+            document.getElementById('achievementName').value = '';
+            document.getElementById('achievementDesc').value = '';
+            document.getElementById('achievementSource').value = '';
+            document.getElementById('achievementIcon').value = '';
+        });
+
+        // ========== 线索板相关函数 ==========
         function renderBoardList() {
             const container = document.getElementById('boardModuleList');
             if (!container) return;
             container.innerHTML = '';
-            boards.forEach(board => {
+            boards.forEach((board, idx) => {
                 const div = document.createElement('div');
                 div.className = `board-item ${board.id === currentBoardId ? 'active' : ''}`;
-                div.setAttribute('data-board-id', board.id);
-                div.textContent = board.name;
-                div.onclick = () => {
-                    currentBoardId = board.id;
-                    renderBoardList();
-                    renderCurrentBoard();
-                };
+                div.innerHTML = `
+                    <span onclick="selectBoard('${board.id}')" style="flex:1; cursor:pointer;">${escapeHtml(board.name)}</span>
+                    <button class="board-delete" onclick="deleteBoard(${idx})">✕</button>
+                `;
                 container.appendChild(div);
             });
         }
+
+        window.selectBoard = (id) => {
+            currentBoardId = id;
+            renderBoardList();
+            renderCurrentBoard();
+        };
+
+        window.deleteBoard = (index) => {
+            if (boards.length <= 1) {
+                alert('至少保留一个梦境');
+                return;
+            }
+            boards.splice(index, 1);
+            currentBoardId = boards[0].id;
+            renderBoardList();
+            renderCurrentBoard();
+            saveToStorage();
+        };
 
         function renderCurrentBoard() {
             const canvas = document.getElementById('boardCanvas');
@@ -1565,99 +1694,6 @@
             });
         }
 
-        function renderLinks() {
-            const container = document.getElementById('linkGridContainer');
-            if (!container) return;
-            container.innerHTML = '';
-            links.forEach((link, idx) => {
-                const div = document.createElement('div');
-                div.className = 'link-tile';
-                div.innerHTML = `
-                    <div class="link-icon">⌘</div>
-                    <div class="link-info">
-                        <a href="${escapeHtml(link.url)}" target="_blank">${escapeHtml(link.name)}</a>
-                        <div>${escapeHtml(link.url)}</div>
-                    </div>
-                    <button class="delete-btn" onclick="deleteLink(${idx})">✕</button>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        window.deleteLink = (index) => {
-            links.splice(index, 1);
-            saveToStorage();
-            renderLinks();
-        };
-
-        document.getElementById('addModuleBtn')?.addEventListener('click', () => {
-            const name = document.getElementById('moduleNameInput').value.trim();
-            if (!name) return;
-            const tagStr = document.getElementById('moduleTagInput').value.trim();
-            let tags = tagStr ? tagStr.split(',').map(s => s.trim()).filter(s => s) : [];
-            modules.push({
-                name: name,
-                status: document.getElementById('moduleStatusSelect').value,
-                background: document.getElementById('moduleBackground').value.trim(),
-                comment: document.getElementById('moduleComment').value.trim(),
-                tags: tags
-            });
-            saveToStorage();
-            renderModules();
-            document.getElementById('moduleNameInput').value = '';
-            document.getElementById('moduleTagInput').value = '';
-            document.getElementById('moduleBackground').value = '';
-            document.getElementById('moduleComment').value = '';
-        });
-
-        document.getElementById('addCalendarBtn')?.addEventListener('click', () => {
-            const date = document.getElementById('calendarDate').value;
-            const hours = parseFloat(document.getElementById('calendarHours').value);
-            const module = document.getElementById('calendarModule').value;
-            if (!date || !hours) return;
-            calendar.push({ date, hours, module });
-            saveToStorage();
-            renderCalendar();
-            document.getElementById('calendarDate').value = '2026-03-17';
-            document.getElementById('calendarHours').value = '2';
-            document.getElementById('calendarModule').value = '';
-        });
-
-        document.getElementById('addAchievementBtn')?.addEventListener('click', () => {
-            const name = document.getElementById('achievementName').value.trim();
-            if (!name) return;
-            
-            const iconFile = document.getElementById('achievementIcon').files[0];
-            if (iconFile) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    achievements.push({
-                        name: name,
-                        desc: document.getElementById('achievementDesc').value.trim(),
-                        source: document.getElementById('achievementSource').value.trim(),
-                        date: document.getElementById('achievementDate').value,
-                        icon: e.target.result
-                    });
-                    saveToStorage();
-                    renderAchievements();
-                };
-                reader.readAsDataURL(iconFile);
-            } else {
-                achievements.push({
-                    name: name,
-                    desc: document.getElementById('achievementDesc').value.trim(),
-                    source: document.getElementById('achievementSource').value.trim(),
-                    date: document.getElementById('achievementDate').value
-                });
-                saveToStorage();
-                renderAchievements();
-            }
-            document.getElementById('achievementName').value = '';
-            document.getElementById('achievementDesc').value = '';
-            document.getElementById('achievementSource').value = '';
-            document.getElementById('achievementIcon').value = '';
-        });
-
         document.getElementById('addBoardModuleBtn')?.addEventListener('click', () => {
             const name = prompt('输入梦境名称', '新梦境');
             if (!name) return;
@@ -1684,6 +1720,32 @@
             alert('点击第一个线索，再点击第二个线索进行连接');
         });
 
+        // ========== 外链相关函数 ==========
+        function renderLinks() {
+            const container = document.getElementById('linkGridContainer');
+            if (!container) return;
+            container.innerHTML = '';
+            links.forEach((link, idx) => {
+                const div = document.createElement('div');
+                div.className = 'link-tile';
+                div.innerHTML = `
+                    <div class="link-icon">⌘</div>
+                    <div class="link-info">
+                        <a href="${escapeHtml(link.url)}" target="_blank">${escapeHtml(link.name)}</a>
+                        <div>${escapeHtml(link.url)}</div>
+                    </div>
+                    <button class="delete-btn" onclick="deleteLink(${idx})">✕</button>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        window.deleteLink = (index) => {
+            links.splice(index, 1);
+            saveToStorage();
+            renderLinks();
+        };
+
         document.getElementById('addLinkBtn')?.addEventListener('click', () => {
             const name = document.getElementById('linkNameInput').value.trim();
             let url = document.getElementById('linkUrlInput').value.trim();
@@ -1696,48 +1758,7 @@
             document.getElementById('linkUrlInput').value = '';
         });
 
-        const statKeys = ['力量','敏捷','意志','智力','体型','教育','幸运','外貌','理智'];
-        const nineDiv = document.getElementById('nineStats');
-        if (nineDiv) {
-            statKeys.forEach(s => {
-                const w = document.createElement('div');
-                w.className = 'stat-item';
-                w.style.cssText = 'background:#0f0d0a; border:2px solid #4f4437; padding:10px; text-align:center;';
-                w.innerHTML = `<label style="color:#b48b4a;">${s}</label><input type="number" class="stat-input" data-stat="${s}" value="50" min="1" style="width:80px; text-align:center; margin-top:4px; background:#0f0d0a; border:2px solid #4f4437; color:#e0d3c0;">`;
-                nineDiv.appendChild(w);
-            });
-        }
-
-        document.getElementById('addManualCharBtn')?.addEventListener('click', () => {
-            const name = prompt('输入调查员姓名', '新调查员');
-            if (!name) return;
-            const statInputs = document.querySelectorAll('.stat-input');
-            let stats = {};
-            statInputs.forEach(inp => stats[inp.dataset.stat] = parseInt(inp.value) || 50);
-            const quote = document.getElementById('charQuote').value.trim() || '';
-            const modulesPlayed = document.getElementById('charModules').value.trim() || '';
-            const avatarFile = document.getElementById('avatarUpload').files[0];
-            
-            if (avatarFile) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    characters.push({ name, stats, quote, modules: modulesPlayed, avatarData: e.target.result });
-                    saveToStorage();
-                    renderCharacters();
-                };
-                reader.readAsDataURL(avatarFile);
-            } else {
-                characters.push({ name, stats, quote, modules: modulesPlayed, avatarData: null });
-                saveToStorage();
-                renderCharacters();
-            }
-            document.getElementById('charQuote').value = '';
-            document.getElementById('charModules').value = '';
-            document.getElementById('avatarUpload').value = '';
-        });
-
-        document.getElementById('statusFilter')?.addEventListener('change', renderModules);
-
+        // ========== 导入导出 ==========
         document.getElementById('exportDataBtn')?.addEventListener('click', () => {
             const exportData = { modules, characters, links, calendar, achievements, boards, keeper: keeperDisplay.textContent };
             const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
@@ -1785,6 +1806,7 @@
             reader.readAsText(file);
         });
 
+        // ========== 分页切换 ==========
         const tabs = document.querySelectorAll('.tab-btn');
         const pages = document.querySelectorAll('.page');
         tabs.forEach(t => t.addEventListener('click', (e) => {
@@ -1793,6 +1815,7 @@
             pages.forEach(p => p.classList.remove('active-page'));
             document.getElementById(t.dataset.page + '-page').classList.add('active-page');
             
+            // 刷新对应页面数据
             if (t.dataset.page === 'calendar') {
                 renderCalendar();
                 setTimeout(() => drawChart(), 50);
@@ -1814,6 +1837,7 @@
             }
         });
 
+        // 启动
         loadFromStorage();
         renderModules();
         renderCharacters();
